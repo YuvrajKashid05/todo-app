@@ -16,7 +16,6 @@ export default function Todos() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // ✅ add form state
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("Medium");
   const [duedate, setDuedate] = useState("");
@@ -185,9 +184,6 @@ export default function Todos() {
         <div className="bg-[#2A2E35] rounded-xl p-4 space-y-3">
           {loading ? (
             <div className="space-y-2">
-              <div className="skeleton h-20 w-full"></div>
-              <div className="skeleton h-20 w-full"></div>
-              <div className="skeleton h-20 w-full"></div>
               <div className="skeleton h-20 w-full"></div>
               <div className="skeleton h-20 w-full"></div>
               <div className="skeleton h-20 w-full"></div>
