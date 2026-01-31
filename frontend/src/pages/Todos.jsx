@@ -284,21 +284,23 @@ export default function Todos() {
                       </>
                     ) : (
                       <>
-                        <button
-                          className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
-                          type="button"
-                          onClick={() => saveEdit(todo._id)}
-                        >
-                          <FiCheck size={18} />
-                        </button>
+                        <div className="flex flex-row gap-2">
+                          <button
+                            className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
+                            type="button"
+                            onClick={() => saveEdit(todo._id)}
+                          >
+                            <FiCheck size={18} />
+                          </button>
 
-                        <button
-                          className="p-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-white/5"
-                          type="button"
-                          onClick={cancelEdit}
-                        >
-                          <FiX size={18} />
-                        </button>
+                          <button
+                            className="p-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-white/5"
+                            type="button"
+                            onClick={cancelEdit}
+                          >
+                            <FiX size={18} />
+                          </button>
+                        </div>
                       </>
                     )}
                   </div>
