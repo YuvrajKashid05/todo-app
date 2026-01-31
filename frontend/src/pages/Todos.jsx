@@ -173,7 +173,11 @@ export default function Todos() {
               className="md:col-span-1 bg-indigo-600 hover:bg-indigo-700  transition px-4 py-2.5 rounded-lg font-medium w-full"
               disabled={loading}
             >
-              {loading ? "Adding..." : "Add"}
+              {loading ? (
+                <span className="loading loading-spinner loading-md"></span>
+              ) : (
+                "Add"
+              )}
             </button>
           </form>
         </div>
