@@ -284,7 +284,7 @@ export default function Todos() {
                       </>
                     ) : (
                       <>
-                        <div className="flex flex-row gap-2">
+                        <div className="flex flex-col sm:flex-row gap-2">
                           <button
                             className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
                             type="button"
