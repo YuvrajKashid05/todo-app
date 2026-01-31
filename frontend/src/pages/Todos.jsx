@@ -181,8 +181,12 @@ export default function Todos() {
         <div className="bg-[#2A2E35] rounded-xl p-4 space-y-3">
           {loading ? (
             <div className="space-y-2">
-              <div className="skeleton h-10 w-full"></div>
-              <div className="skeleton h-10 w-full"></div>
+              <div className="skeleton h-20 w-full"></div>
+              <div className="skeleton h-20 w-full"></div>
+              <div className="skeleton h-20 w-full"></div>
+              <div className="skeleton h-20 w-full"></div>
+              <div className="skeleton h-20 w-full"></div>
+              <div className="skeleton h-20 w-full"></div>
             </div>
           ) : todos.length === 0 ? (
             <p className="text-gray-400">No todos found.</p>
