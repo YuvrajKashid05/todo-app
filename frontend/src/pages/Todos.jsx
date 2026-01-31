@@ -180,7 +180,7 @@ export default function Todos() {
 
         <div className="bg-[#2A2E35] rounded-xl p-4 space-y-3">
           {loading ? (
-            <p className="text-gray-300 ">Loading todos...</p>
+            <div className="skeleton h-32 max-w-full"></div>
           ) : todos.length === 0 ? (
             <p className="text-gray-400">No todos found.</p>
           ) : (
