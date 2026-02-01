@@ -197,17 +197,17 @@ export default function Todos() {
               return (
                 <div
                   key={todo._id}
-                  className={`flex items-start justify-between rounded-xl p-3 border border-white/5 ${
+                  className={`flex items-start justify-between rounded-xl p-3 gap-3 border border-white/5 ${
                     todo.completed ? "bg-[#1C1F26]/60" : "bg-[#1C1F26]"
                   }`}
                 >
-                  <div className="flex gap-3 w-full ">
-                    <div
-                      className={`w-2 rounded-full ${priorityBar(
-                        todo.priority || "Medium",
-                      )}`}
-                    />
+                  <div
+                    className={`w-2 rounded-full ${priorityBar(
+                      todo.priority || "Medium",
+                    )}`}
+                  />
 
+                  <div className="flex gap-3 w-full ">
                     <div className="flex gap-3 w-full items-center self-stretch">
                       <input
                         type="checkbox"
