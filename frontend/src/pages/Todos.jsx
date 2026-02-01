@@ -16,6 +16,9 @@ export default function Todos() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // ✅ NEW: only for update spinner
+  const [updatingId, setUpdatingId] = useState(null);
+
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState("Medium");
   const [duedate, setDuedate] = useState("");
@@ -43,7 +46,6 @@ export default function Todos() {
     fetchTodos();
   }, [token]);
 
-  // ✅ add todo submit
   const addTodos = async (e) => {
     e.preventDefault();
 
@@ -121,10 +123,13 @@ export default function Todos() {
     setEditDueDate("");
   };
 
+  // ✅ UPDATED: uses updatingId (not global loading)
   const saveEdit = async (id) => {
     if (!editTitle.trim()) return toast.error("Title is required");
 
     try {
+      setUpdatingId(id);
+
       await updateTodoRequest(id, {
         title: editTitle,
         priority: editPriority,
@@ -136,6 +141,8 @@ export default function Todos() {
       fetchTodos();
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to update todo");
+    } finally {
+      setUpdatingId(null);
     }
   };
 
@@ -167,6 +174,7 @@ export default function Todos() {
             <div className="md:col-span-1">
               <Duedate value={duedate} onChange={setDuedate} />
             </div>
+
             <button
               type="submit"
               className="md:col-span-1 bg-indigo-600 hover:bg-indigo-700  transition px-4 py-2.5 rounded-lg font-medium w-full"
@@ -193,6 +201,7 @@ export default function Todos() {
           ) : (
             todos.map((todo) => {
               const isEditing = editingId === todo._id;
+              const isUpdating = updatingId === todo._id;
 
               return (
                 <div
@@ -290,25 +299,29 @@ export default function Todos() {
                         </button>
                       </>
                     ) : (
-                      <>
-                        <div className="flex gap-3">
-                          <button
-                            className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
-                            type="button"
-                            onClick={() => saveEdit(todo._id)}
-                          >
+                      <div className="flex gap-3">
+                        <button
+                          className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10 disabled:opacity-60"
+                          type="button"
+                          onClick={() => saveEdit(todo._id)}
+                          disabled={isUpdating}
+                        >
+                          {isUpdating ? (
+                            <span className="loading loading-spinner loading-sm"></span>
+                          ) : (
                             <FiCheck size={18} />
-                          </button>
+                          )}
+                        </button>
 
-                          <button
-                            className="p-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-white/5"
-                            type="button"
-                            onClick={cancelEdit}
-                          >
-                            <FiX size={18} />
-                          </button>
-                        </div>
-                      </>
+                        <button
+                          className="p-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-white/5 disabled:opacity-60"
+                          type="button"
+                          onClick={cancelEdit}
+                          disabled={isUpdating}
+                        >
+                          <FiX size={18} />
+                        </button>
+                      </div>
                     )}
                   </div>
                 </div>
