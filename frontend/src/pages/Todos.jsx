@@ -270,7 +270,7 @@ export default function Todos() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2 py-2 px-2">
+                  <div className="flex flex-col sm:flex-row items-center gap-2 py-2 px-2">
                     {!isEditing ? (
                       <>
                         <button
