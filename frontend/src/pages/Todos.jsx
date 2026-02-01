@@ -201,12 +201,13 @@ export default function Todos() {
                     todo.completed ? "bg-[#1C1F26]/60" : "bg-[#1C1F26]"
                   }`}
                 >
-                  <div
-                    className={`w-2 self-stretch rounded-tr-lg rounded-br-lg ${priorityBar(
-                      todo.priority || "Medium",
-                    )}`}
-                  />
                   <div className="flex gap-3 w-full ">
+                    <div
+                      className={`w-2 self-stretch rounded-tr-lg rounded-br-lg ${priorityBar(
+                        todo.priority || "Medium",
+                      )}`}
+                    />
+
                     <div className="flex gap-3  w-full items-center">
                       <input
                         type="checkbox"
