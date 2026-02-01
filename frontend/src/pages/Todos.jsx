@@ -43,7 +43,6 @@ export default function Todos() {
     fetchTodos();
   }, [token]);
 
-  // ✅ add todo submit
   const addTodos = async (e) => {
     e.preventDefault();
 
@@ -167,6 +166,7 @@ export default function Todos() {
             <div className="md:col-span-1">
               <Duedate value={duedate} onChange={setDuedate} />
             </div>
+
             <button
               type="submit"
               className="md:col-span-1 bg-indigo-600 hover:bg-indigo-700  transition px-4 py-2.5 rounded-lg font-medium w-full"
@@ -203,7 +203,7 @@ export default function Todos() {
                 >
                   <div className="flex gap-3 w-full ">
                     <div
-                      className={`w-2 self-stretch h-full rounded-tr-lg rounded-bl-lg ${priorityBar(
+                      className={`w-2 self-stretch rounded-tr-lg rounded-br-lg ${priorityBar(
                         todo.priority || "Medium",
                       )}`}
                     />
@@ -290,25 +290,23 @@ export default function Todos() {
                         </button>
                       </>
                     ) : (
-                      <>
-                        <div className="flex flex-col sm:flex-row gap-2">
-                          <button
-                            className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
-                            type="button"
-                            onClick={() => saveEdit(todo._id)}
-                          >
-                            <FiCheck size={18} />
-                          </button>
+                      <div className="flex flex-col sm:flex-row gap-2">
+                        <button
+                          className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
+                          type="button"
+                          onClick={() => saveEdit(todo._id)}
+                        >
+                          <FiCheck size={18} />
+                        </button>
 
-                          <button
-                            className="p-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-white/5"
-                            type="button"
-                            onClick={cancelEdit}
-                          >
-                            <FiX size={18} />
-                          </button>
-                        </div>
-                      </>
+                        <button
+                          className="p-2 rounded-lg transition text-gray-300 hover:text-white hover:bg-white/5"
+                          type="button"
+                          onClick={cancelEdit}
+                        >
+                          <FiX size={18} />
+                        </button>
+                      </div>
                     )}
                   </div>
                 </div>
