@@ -141,7 +141,7 @@ export default function Todos() {
 
   return (
     <div className="min-h-screen bg-[#1C1F26] text-white py-4 ">
-      <div className="max-w-5xl mx-auto p-4">
+      <div className="max-w-6xl mx-auto p-4">
         <h1 className="text-3xl font-bold mb-6">My Todos</h1>
 
         <div className="bg-[#2A2E35] rounded-xl p-4 mb-6">
@@ -206,8 +206,7 @@ export default function Todos() {
                       todo.priority || "Medium",
                     )}`}
                   />
-
-                  <div className="flex gap-3 w-full ">
+                  <div className="flex gap-3 w-full items-center ">
                     <div className="flex gap-3 w-full items-center self-stretch">
                       <input
                         type="checkbox"
