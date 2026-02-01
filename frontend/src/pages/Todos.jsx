@@ -203,7 +203,7 @@ export default function Todos() {
                 >
                   <div className="flex gap-3 w-full ">
                     <div
-                      className={`w-2 self-stretch rounded-tr-lg rounded-br-lg ${priorityBar(
+                      className={`w-2 h-full rounded-tr-lg rounded-br-lg ${priorityBar(
                         todo.priority || "Medium",
                       )}`}
                     />
