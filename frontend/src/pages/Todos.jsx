@@ -208,7 +208,7 @@ export default function Todos() {
                       )}`}
                     />
 
-                    <div className="flex gap-3  w-full items-center">
+                    <div className="flex gap-3 w-full items-center self-stretch">
                       <input
                         type="checkbox"
                         checked={!!todo.completed}
