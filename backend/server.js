@@ -2,6 +2,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
 import connectDB from "./config/db.js";
+import { protect } from "./middleware/auth.middleware.js";
 import authRoutes from "./routes/auth.route.js";
 import todoRoutes from "./routes/todo.route.js";
 
@@ -22,7 +23,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/auth", authRoutes);
+app.use("/api/auth",protect, authRoutes);
 app.use("/api/todos", todoRoutes);
 
 app.listen(5000, () => console.log("Server is running on port 5000"));
