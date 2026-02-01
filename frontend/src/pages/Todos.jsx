@@ -141,7 +141,7 @@ export default function Todos() {
 
   return (
     <div className="min-h-screen bg-[#1C1F26] text-white py-4 ">
-      <div className="max-w-6xl mx-auto p-4">
+      <div className="max-w-5xl mx-auto p-4">
         <h1 className="text-3xl font-bold mb-6">My Todos</h1>
 
         <div className="bg-[#2A2E35] rounded-xl p-4 mb-6">
@@ -197,17 +197,18 @@ export default function Todos() {
               return (
                 <div
                   key={todo._id}
-                  className={`flex items-start justify-between rounded-xl p-3 gap-3 border border-white/5 ${
+                  className={`flex items-start justify-between rounded-xl p-3 border border-white/5 ${
                     todo.completed ? "bg-[#1C1F26]/60" : "bg-[#1C1F26]"
                   }`}
                 >
-                  <div
-                    className={`w-2 rounded-full ${priorityBar(
-                      todo.priority || "Medium",
-                    )}`}
-                  />
-                  <div className="flex gap-3 w-full items-center ">
-                    <div className="flex gap-3 w-full items-center self-stretch">
+                  <div className="flex gap-3 w-full ">
+                    <div
+                      className={`w-2 rounded-full ${priorityBar(
+                        todo.priority || "Medium",
+                      )}`}
+                    />
+
+                    <div className="flex gap-3 w-full items-center">
                       <input
                         type="checkbox"
                         checked={!!todo.completed}
@@ -269,7 +270,7 @@ export default function Todos() {
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row items-center gap-2 py-2 px-2">
+                  <div className="flex items-center gap-2 py-2 px-2">
                     {!isEditing ? (
                       <>
                         <button
@@ -290,7 +291,7 @@ export default function Todos() {
                       </>
                     ) : (
                       <>
-                        <div className="flex flex-col sm:flex-row gap-2">
+                        <div className="flex gap-3">
                           <button
                             className="p-2 rounded-lg transition text-green-400 hover:text-green-300 hover:bg-green-500/10"
                             type="button"
